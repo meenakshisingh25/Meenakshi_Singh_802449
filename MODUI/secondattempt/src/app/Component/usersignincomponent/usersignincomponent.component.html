@@ -1,0 +1,30 @@
+<div class="container">
+        <table class="table table-bordered">
+            
+            <tr>
+                <td>name</td>
+                <td><input type="text" name="user_Name" id="" [(ngModel)]="item.user_Name"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="email" name="user_Email" id="" [(ngModel)]="item.user_Email" ></td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td><input type="text" name="user_Mobile" id="" [(ngModel)]="item.user_Mobile"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="user_Password" id="" [(ngModel)]="item.user_Password"></td>
+            </tr>
+            <tr>
+                    <td>Confirm Password</td>
+                    <td><input type="password" name="Confuser_Password" id="" [(ngModel)]="Confuser_Password"></td>
+                </tr>
+            <tr>
+                <td>
+                    <button (click)="Add()">Register</button>
+                    
+                </td>
+            </tr>
+        </table>

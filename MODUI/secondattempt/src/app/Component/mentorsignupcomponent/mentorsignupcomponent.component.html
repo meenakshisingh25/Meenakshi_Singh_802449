@@ -1,0 +1,61 @@
+<div class="container">
+        <table class="table table-bordered">
+            
+            <tr>
+                <td>name</td>
+                <td><input type="text" name="mentor_name" id="" [(ngModel)]="item.mentor_name"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="email" name="mentor_Email" id="" [(ngModel)]="item.mentor_Email" ></td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td><input type="text" name="mentor_ContactNo" id="" [(ngModel)]="item.mentor_ContactNo"></td>
+            </tr>
+            <tr>
+                    <td>Years of experience</td>
+                    <td><input type="text" name="mentor_exp" id="" [(ngModel)]="item.mentor_exp"></td>
+                </tr>
+            <tr>
+                    <td>Primary Skill</td>
+                    <td><input type="text" name="mentor_Primary_Skill" id="" [(ngModel)]="item.mentor_Primary_Skill"></td>
+                </tr>
+
+                <tr>
+                        <td>TimeSlot</td>
+                        <td><input type="text" name="mentor_timeslot" id="" [(ngModel)]="item.mentor_timeslot"></td>
+                    </tr>
+                
+                   <tr>
+                     <td>role</td>
+                     <td><input type="text" name="role" id="" [(ngModel)]="role"></td>
+                </tr>
+                <tr>
+                <td>LinkedInUrl</td>
+                     <td><input type="text" name="mentor_LinkedInUrl" id="" [(ngModel)]="item.mentor_LinkedInUrl"></td>
+                </tr>
+                <tr>
+                <td>facility</td>
+                     <td><input type="text" name="mentor_facility" id="" [(ngModel)]="item.mentor_facility"></td>
+                </tr>
+                
+                        
+                        <tr>
+                                <td> Password</td>
+                                <td><input type="password" name="mentor_Password" id="" [(ngModel)]="item.mentor_Password"></td>
+                            </tr>
+            
+            <tr>
+                    <td>Confirm Password</td>
+                    <td><input type="password" name="Confuser_Password" id="" [(ngModel)]="Confuser_Password"></td>
+                </tr>
+            <tr>
+                <td>
+                    <button (click)="Add()">Register</button>
+                    
+                </td>
+            </tr>
+        </table>
+        
+        {{item|json}}

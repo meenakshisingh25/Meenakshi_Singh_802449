@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+    width: 121px;
+    position: fixed;
+    /* z-index: 1; */
+    top: 52px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+       
+  <li ><a  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" > Search Trainings</a></li>
+  <a (click)="UserCurrentTraining()"> Current Training</a>
+  <a (click)="UserCompletedTraining()"> Completed Training</a>
+  <!-- <a (click)="Payment()"> <i class="fa fa-credit-card" style="padding-top: 15px;" aria-hidden="true"></i>  Payment</a> -->
+</div>
+  
+
+<!-- <div class="inner-form" align="center" style="position: relative;
+left: 160px;
+height: 51px;">
+  <div class="input-field first-wrap">
+    <input id="search" type="text" placeholder="TECHNOLOGY" />
+  </div>
+  <div class="input-field second-wrap">
+    <input id="location" type="text" placeholder="TIMESLOT" />
+  </div>
+  <div class="input-field third-wrap">
+    <button class="btn-search" type="button">Search</button>
+  </div>
+</div>  -->
+<!-- ************************************************* -->
+
+ <form >
+
+	<div  id="collapseExample" [ngbCollapse]="!isCollapsed">
+		
+			  <div class="inner-form"style="position: relative;
+        left: 160px;
+        height: 51px;" >
+				  <div class="input-field first-wrap">
+				  <input id="search" list="host" type="text"  name="technology" [(ngModel)]="technology" placeholder="Which Technology are you looking for?">
+				  <datalist id='host'>
+					<option *ngFor="let item1 of list2" value={{item1.skillName}}></option>
+					
+				  </datalist>
+				  </div>
+				  <div class="input-field second-wrap">
+				  <input list="slot" type="text" placeholder="TimeSlot" name="timestart" [(ngModel)]="timestart">
+				  <datalist id='slot'>
+					  <option value="08:30AM - 10:30AM"></option>
+					  <option value="09:00AM - 11:00AM"></option>
+					  <option value="10:30AM - 12:30PM"></option>
+					  <option value="11:00AM - 1:00PM"></option>
+					  <option value="11:30AM - 01:30PM"></option>
+					  <option value="02:00PM - 04:00PM"></option>
+					  <option value="03:00PM - 05:00AM"></option>
+					  <option value="04:00PM - 06:00PM"></option>
+					  <option value="05:30PM - 07:30PM"></option>
+					  <option value="06:00PM - 08:00PM"></option>
+				  </datalist>  
+				</div>
+				  <div class="input-field third-wrap">
+				  <button class="btn-search" type="button" (click)="onSubmit()">Search</button>
+				  </div>
+				  </div>
+		  </div>
+		
+		</form>
+		
+<section class="listings" style="position: relative;
+top: 50px; margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    color: rgb(12, 0, 0)">
+    <div class="container">
+            <div class="col-md-9" style="    background: #a96c6c;
+            /* height: 800px; */
+            width: 830px;
+            position: relative;
+            left: 105px;
+            opacity: 0.5;
+    ">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 > Results</h2>
+                        <p> {{count}} results found  </p>
+                    </div>
+                </div>
+                
+                <div class="row mb-3" *ngFor="let item of list1" >
+				<div class="col-md-12" >
+					<div class="card" >
+						<div class="card-body" >
+						   <div  class="row">
+								<div class="col-md-3">
+									<img src="../../../../assets/images/mentor.jpg" style="max-width: 110px ;padding-top: 5px; padding-bottom: 5px;"alt="">
+								</div>
+								<div class="col-md-3">
+									<h4>{{item.mentor_name}}</h4>
+		
+									<label >Email :</label><p style="margin-top: -25px;
+									margin-left: 63px;" >{{item.mentor_Email}}</p>
+									<label >Contact No:</label><p style="margin-top: -25px;
+									margin-left: 93px;">{{item.mentor_ContactNo}}</p>
+									<label >Linkin Url:</label><p style="margin-top: -25px;
+									margin-left: 93px;">{{item.mentor_LinkedInUrl}}</p>
+									
+								</div>
+								
+								<div class="col-md-3" style="margin-top: 40px;">
+									<label >Experience :</label><p style="margin-top: -25px;
+									margin-left: 96px;">{{item.mentor_exp}}</p>
+									<label >Timeslot :</label><p style="margin-top: -25px;
+									margin-left: 85px;">{{item.mentor_timeslot}}</p>
+									
+								</div>
+								<div class="col-md-3" style="margin-top: 36px;">
+									<label >Course fees :</label><p style="margin-top: -25px;
+									margin-left: 100px;">fee</p><br>
+		<a routerLink="/Payment"> 
+								    <button type="button" class="btn btn-primarybtn-sm btn-success" >Subscribe</button></a>
+								   
+								
+								</div>
+							</div>
+							<hr>
+						</div>
+					</div>
+					
+				</div>	
+				</div>
+                
+                
+            </div>
+        </div> 
+</section> 
+
+<!-- ************************************************** -->
+ <div class="container" *ngIf="check()==1">
+        <p style="font-size: large;color: #000000;">Current Training</p>          
+       <table class="table table-hover" style="background: white;">
+         <thead style="background: #818181;">
+           <tr>
+             <th>TrainingId</th>
+             <th>Training Name</th>
+             <th>Mentor Name</th>
+             <th>Status</th>
+             <th>Start Date</th>
+             <th>End Date</th>
+             <th>Duration</th>
+           </tr>
+         </thead>
+         
+               <tbody *ngFor="let item of list">
+                       <tr>
+                           <td>{{item.training_ID}}</td>
+                           <td>{{item.training_Name}}</td>
+                           <td>{{item.mentor_Name}}</td>
+                           <td>{{item.training_status}}</td>
+                           <td>{{item.training_StartDate}}</td>
+                           <td>{{item.training_EndDate}}</td>
+                           <td>{{item.training_duration}}</td>
+                           <!-- <td><button (click)="DeleteUser(item.userId)"><a><i class="fa fa-trash" aria-hidden="true"> Delete</i></a></button></td> -->
+                      </tr>
+                   </tbody>
+          
+       </table>
+     </div>
+  
+    <div class="container" *ngIf="check()==2">
+     <p style="font-size: large;color: #000000;">Completed Training</p>          
+    <table class="table table-hover" style="background: white;">
+      <thead style="background: #818181;">
+        <tr>
+          <th>TrainingId</th>
+          <th>Training Name</th>
+          <th>Mentor Name</th>
+          <th>Status</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      
+            <tbody *ngFor="let item of list">
+                    <tr>
+                        <td>{{item.training_ID}}</td>
+                        <td>{{item.training_Name}}</td>
+                        <td>{{item.mentor_Name}}</td>
+                        <td>{{item.training_status}}</td>
+                        <td>{{item.training_StartDate}}</td>
+                        <td>{{item.training_EndDate}}</td>
+                        <td>{{item.training_duration}}</td> -->
+                        <!-- <td><button (click)="DeleteUser(item.userId)"><a><i class="fa fa-trash" aria-hidden="true"> Delete</i></a></button></td> -->
+                    </tr>
+                </tbody>
+       
+    </table>
+  </div> 
+
+  
+   
+<!-- </body> -->
+<!-- </html>  -->

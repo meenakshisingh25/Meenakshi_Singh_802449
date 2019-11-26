@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MOD.TestingService": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

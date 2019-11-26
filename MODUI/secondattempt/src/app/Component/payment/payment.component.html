@@ -1,0 +1,70 @@
+ PAYMENT successfull......
+<!--
+<section class="listings" style="position: relative;
+top: 50px; margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    color: rgb(12, 0, 0)">
+    <div class="container">
+            <div class="col-md-9" style="    background: #a96c6c;
+            /* height: 800px; */
+            width: 830px;
+            position: relative;
+            left: 105px;
+            opacity: 0.5;
+    ">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 style="align:center"> Results</h2>
+                        <p> {{count}} results found  </p>
+                    </div>
+                </div>
+                
+                <div class="row mb-3" *ngFor="let item of list1" >
+				<div class="col-md-12" >
+					<div class="card" >
+						<div class="card-body" >
+						   <div  class="row">
+								<div class="col-md-3">
+									<img src="../../../../assets/images/mentor.jpg" style="max-width: 110px ;padding-top: 5px; padding-bottom: 5px;"alt="">
+								</div>
+								<div class="col-md-3">
+									<h4>{{item.mentor_name}}</h4>
+		
+									<label >Email :</label><p style="margin-top: -25px;
+									margin-left: 63px;" >{{item.mentor_Email}}</p>
+									<label >Contact No:</label><p style="margin-top: -25px;
+									margin-left: 93px;">{{item.mentor_ContactNo}}</p>
+									<label >Linkin Url:</label><p style="margin-top: -25px;
+									margin-left: 93px;">{{item.mentor_LinkedInUrl}}</p>
+									
+								</div>
+								
+								<div class="col-md-3" style="margin-top: 40px;">
+									<label >Experience :</label><p style="margin-top: -25px;
+									margin-left: 96px;">{{item.mentor_exp}}</p>
+									<label >Timeslot :</label><p style="margin-top: -25px;
+									margin-left: 85px;">{{item.mentor_timeslot}}</p>
+									
+								</div>
+								<div class="col-md-3" style="margin-top: 36px;">
+									<label >Course fees :</label><p style="margin-top: -25px;
+									margin-left: 100px;">fee</p><br>
+		<a routerLink="/Payment"> 
+								    <button type="button" class="btn btn-primarybtn-sm btn-success" >Subscribe</button></a>
+								   
+								
+								</div>
+							</div>
+							<hr>
+						</div>
+					</div>
+					
+				</div>	
+				</div>
+                
+                
+            </div>
+        </div> 
+</section>  -->
